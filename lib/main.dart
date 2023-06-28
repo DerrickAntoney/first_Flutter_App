@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import './question.dart';
 //void main () {
 //  runApp(MyApp());
 //}
@@ -7,13 +7,11 @@ import 'package:flutter/material.dart';
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-
- @override
+  @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return _MyAppState();
-  } 
-
+  }
 }
 
 class _MyAppState extends State<MyApp> {
@@ -22,7 +20,6 @@ class _MyAppState extends State<MyApp> {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
-    
   }
 
   @override
@@ -38,19 +35,18 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(
-              questions[_questionIndex]
-            ),
+            Question(questions[_questionIndex]),
             TextButton(
               onPressed: _answerQuestion,
               child: Text('Answer 1'),
             ),
             TextButton(
-              onPressed: () => print("Answer 2 chosen!"),// Anonymous fn
+              onPressed: () => print("Answer 2 chosen!"), // Anonymous fn
               child: Text('Answer 2'),
             ),
             TextButton(
-              onPressed: () {   //Anonymous fn
+              onPressed: () {
+                //Anonymous fn
                 //...
                 print('Answer 3 chosen!');
               },
